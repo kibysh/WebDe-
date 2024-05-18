@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript Tasks</title>
+</head>
+<body>
+<h1>Кібиш Юлія  ІК-201 лабораторна робота №3 </h1>
+<h2>Task 1: Arithmetic Operations</h2>
+<label for="a">Enter value for a:</label>
+<input type="text" id="a">
+<label for="b">Enter value for b:</label>
+<input type="text" id="b">
+<button onclick="arithmeticOperations()">Calculate</button>
+<p id="result1"></p>
+
+<h2>Task 2: Circle Perimeter and Area</h2>
+<label for="radius">Enter radius of the circle:</label>
+<input type="text" id="radius">
+<button onclick="circleCalculations()">Calculate</button>
+<p id="result2"></p>
+
+<h2>Task 3: Determine n based on m</h2>
+<label for="m">Enter value for m:</label>
+<input type="text" id="m">
+<button onclick="calculateN()">Calculate</button>
+<p id="result3"></p>
+
+<h2>Task 4: Check Even or Odd</h2>
+<label for="number">Enter a number:</label>
+<input type="text" id="number">
+<button onclick="checkEvenOdd()">Check</button>
+<p id="result4"></p>
+
+<h2>Task 5: Sum and Product of First 10 Natural Numbers</h2>
+<button onclick="sumAndProduct()">Calculate</button>
+<p id="result5"></p>
+
+<h2>Task 6: Sum of the Series</h2>
+<label for="series">Enter the number of terms (n) for the series:</label>
+<input type="text" id="series">
+<button onclick="sumOfSeries()">Calculate</button>
+<p id="result6"></p>
+
+<h2>Task 7: Check Leap Year</h2>
+<label for="year">Enter a year:</label>
+<input type="text" id="year">
+<button onclick="checkLeapYear()">Check</button>
+<p id="result7"></p>
+
+<script>
+function arithmeticOperations() {
+    let a = parseInt(document.getElementById('a').value);
+    let b = parseInt(document.getElementById('b').value);
+    
+    let suma = a + b;
+    let subtraction = a - b;
+    let multiplication = a * b;
+    let division = a / b;
+    
+    document.getElementById('result1').innerText = 
+        "Sum: " + suma + "\n" +
+        "Difference: " + subtraction + "\n" +
+        "Product: " + multiplication + "\n" +
+        "Division: " + division;
+}
+
+function circleCalculations() {
+    let radius = parseFloat(document.getElementById('radius').value);
+    
+    let perimeter = 2 * Math.PI * radius;
+    let area = Math.PI * Math.pow(radius, 2);
+    
+    document.getElementById('result2').innerText = 
+        "Perimeter: " + perimeter.toFixed(2) + "\n" +
+        "Area: " + area.toFixed(2);
+}
+
+function calculateN() {
+    let m = parseInt(document.getElementById('m').value);
+    let n;
+    
+    if (m > 0) {
+        n = 1;
+    } else if (m === 0) {
+        n = 0;
+    } else {
+        n = -1;
+    }
+    
+    document.getElementById('result3').innerText = "n = " + n;
+}
+
+function checkEvenOdd() {
+    let number = parseInt(document.getElementById('number').value);
+    let result = (number % 2 === 0) ? "Even" : "Odd";
+    
+    document.getElementById('result4').innerText = result;
+}
+
+function sumAndProduct() {
+    let sum = 0;
+    let product = 1;
+    
+    for (let i = 1; i <= 10; i++) {
+        sum += i;
+        product *= i;
+    }
+    
+    document.getElementById('result5').innerText = 
+        "Sum: " + sum + "\n" +
+        "Product: " + product;
+}
+
+function sumOfSeries() {
+    let n = parseInt(document.getElementById('series').value);
+    let totalSum = 0;
+    
+    for (let i = 1; i <= n; i++) {
+        totalSum += parseInt("1".repeat(i));
+    }
+    
+    document.getElementById('result6').innerText = "Sum: " + totalSum;
+}
+
+function checkLeapYear() {
+    let year = parseInt(document.getElementById('year').value);
+    let isLeapYear = ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0);
+    
+    document.getElementById('result7').innerText = 
+        year + " is " + (isLeapYear ? "a leap year." : "not a leap year.");
+}
+</script>
+
+</body>
+</html>
